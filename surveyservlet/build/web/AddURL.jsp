@@ -87,7 +87,7 @@
 
         <div class="jumbotron">
             <div class="container text-center">
-                <h1 style="font-family: 'Varela Round', sans-serif;">Welcome to Monitoring Url Application</h1>      
+                <h1 style="font-family: 'Varela Round', sans-serif;">Monitoring Url Application</h1>      
             </div>
         </div>
         <nav class="navbar navbar-inverse">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">View on Github</a></li>
+                        <li><a href="https://github.com/sanjaybabum5/Monitoring_URL">View on Github</a></li>
                         <li><a href="#">Home</a></li>
                         <li><a href="Tablelist.jsp">URL List</a></li>
                     </ul>

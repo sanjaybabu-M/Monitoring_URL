@@ -30,7 +30,10 @@ public class Login_Servlet extends HttpServlet {
             if (i == true) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                MonitoringApplication ma = new MonitoringApplication(username);
+                ma.monitor(username);
                 response.sendRedirect("AddURL.jsp");
+
             } else {
                 response.sendRedirect("Login.jsp");
             }

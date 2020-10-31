@@ -276,7 +276,7 @@
 
         <div class="jumbotron">
             <div class="container text-center">
-                <h1>Availability Monitoring Application</h1>      
+                <h1>Monitoring Url Application</h1>      
             </div>
         </div>
         <nav class="navbar navbar-inverse">
@@ -290,7 +290,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">View on Github</a></li>
+                        <li><a href="https://github.com/sanjaybabum5/Monitoring_URL">View on Github</a></li>
                         <li><a href="AddURL.jsp">Home</a></li>
                         <li><a href="#">URL List</a></li>
                     </ul>

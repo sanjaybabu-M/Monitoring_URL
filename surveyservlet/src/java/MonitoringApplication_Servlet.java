@@ -14,10 +14,10 @@ public class MonitoringApplication_Servlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            String s = String.valueOf(session.getAttribute("username"));
+            String username = String.valueOf(session.getAttribute("username"));
             String site_name = request.getParameter("site_name");
             MonitoringApplication ma = new MonitoringApplication();
-            ma.monitor(s, site_name);
+            ma.inserturl(username, site_name);
             response.sendRedirect("AddURL.jsp");
         }
     }

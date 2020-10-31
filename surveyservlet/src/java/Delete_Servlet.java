@@ -10,6 +10,13 @@ import javax.servlet.http.HttpSession;
 
 public class Delete_Servlet extends HttpServlet {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -18,12 +25,8 @@ public class Delete_Servlet extends HttpServlet {
             HttpSession session = request.getSession();
             String s = String.valueOf(session.getAttribute("username"));
             String sid = request.getParameter("site_name");
-            MonitoringApplication ma = new MonitoringApplication();
-            response.sendRedirect("Tablelist.jsp");            
+            MonitoringApplication ma = new MonitoringApplication(s);
             ma.delete(s, sid);
-            response.sendRedirect("Tablelist.jsp");
-            Url_checking ur=new Url_checking();
-            ur.urldelete(sid);
             response.sendRedirect("Tablelist.jsp");
         } catch (Exception e) {
             e.printStackTrace();

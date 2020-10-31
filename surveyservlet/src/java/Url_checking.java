@@ -6,35 +6,44 @@ import java.util.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Url_checking extends TimerTask {
 
     int pub_id;
-    List<String> l2 = new ArrayList<>();
+    public HashSet<String> l2 = new HashSet<>();
 
-    Url_checking(List<String> l1, int id) {
-        l2.addAll(l1);
+    Url_checking(int id) {
         pub_id = id;
-    }
-    Url_checking()
-    {
-        
-    }
-
-    public void urldelete(String site_name) {
-        int y = l2.indexOf("site_name");
-        l2.remove(y);
-        System.out.println("del : "+l2);
     }
 
     @Override
     public void run() {
-        System.out.println("l2 : "+l2);
+        System.out.println("1: " + l2);
+        l2.clear();
+        int id = 0;
+        ResultSet rs = null;
+        try {
+            Connection con1;
+            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/surveysparrow?autoReconnect=true&useSSL=false", "root", "sanjay");
+            PreparedStatement preparedStatement1 = con1.prepareStatement("Select site_name from monitor where userid = ? ");
+            preparedStatement1.setInt(1, pub_id);
+            rs = preparedStatement1.executeQuery();
+            while (rs.next()) {
+                String dup = rs.getString("site_name");
+                l2.add(dup);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MonitoringApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.out.println("l2 : " + l2);
         System.out.println("");
         String test = "";
-        for (int i = 0; i < l2.size(); i++) {
+        for (String s : l2) {
 
-            test = l2.get(i);
+            test = s;
             System.out.println("TEST URL : " + test);
             boolean check = true;
             String suc_staus = "SUCCESS";
